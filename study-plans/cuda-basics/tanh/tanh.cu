@@ -5,6 +5,7 @@ __global__ void tanh_kernel(const float* input, float* output, int N) {
     // Write code here
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < N) output[i] = tanh(input[i]);
+    // if (i < N) output[i] = tanhf(input[i]); more optimal solution for single precision
 }
 
 extern "C" void solve(const float* input, float* output, int N) {
